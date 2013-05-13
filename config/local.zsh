@@ -60,7 +60,8 @@ zle -N after-first-word
 bindkey "^b" after-first-word
 
 # make the home key work
-bindkey '^[[7~' beginning-of-line
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
 
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty
@@ -83,3 +84,18 @@ zstyle ':completion:history-words:*' menu yes
 zstyle ':completion:history-words:*' remove-all-dups yes
 bindkey "\e/" _history-complete-older
 bindkey "\e," _history-complete-newer
+
+# Edits bij AvL
+# Function + Delete
+bindkey "^[[3~" delete-char
+# Option + Right/Left
+bindkey "^[^[[C" forward-word
+bindkey "^[^[[D" backward-word
+# PageUp/PageDown
+bindkey "^[[5~" history-beginning-search-backward
+bindkey "^[[6~" history-beginning-search-forward
+
+# Fallback to autocomplete files (for autocompletion a parameter for example)
+zstyle ':completion:*' completer _complete _ignored _files
+
+export REBEL_HOME=~/projects/tools/jrebel
