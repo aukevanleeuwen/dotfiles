@@ -21,6 +21,10 @@ function ___rvm_prompt {
   fi
 }
 
+function ___java_prompt {
+  echo "${gray}java-$(~/.dotfiles/config/java-prompt.zsh)$reset"
+}
+
 # rbenv support
 if which rbenv > /dev/null; then
   eval "$(rbenv init - zsh)";
@@ -36,7 +40,7 @@ bindkey -e
 # Set prompt
 setopt prompt_subst
 PROMPT='$(~/.dotfiles/script/prompt $?)'
-RPROMPT='$(___rvm_prompt)'
+RPROMPT='$(___java_prompt)'
 
 export SHELL=$(which zsh)
 
