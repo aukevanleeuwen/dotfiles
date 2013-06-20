@@ -64,10 +64,10 @@ if needsToInstallBundles == 1
 endif
 
 filetype plugin indent on
-
-
-
-
+ 
+ 
+ 
+ 
 " ==========================
 " SETTINGS
 " ==========================
@@ -101,7 +101,7 @@ set directory=~/.vim/swap/ " Keep swap files in a central location
 set undofile               " Keep undo history even after closing Vim
 set undodir=~/.vim/undo    " Where to store undo history
 set timeoutlen=500         " Don't wait so long for ambiguous leader keys
-set noesckeys              " Get rid of the delay when hitting esc!
+" set noesckeys              " Get rid of the delay when hitting esc!
 set gdefault               " assume the /g flag on :s substitutions to replace all matches in a line
 
 " Indenting always 2 spaces, sorry Python
