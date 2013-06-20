@@ -45,3 +45,10 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+
+# Edits by AvL
+export REBEL_HOME=~/projects/tools/jrebel
+
+# jEnv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"

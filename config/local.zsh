@@ -22,7 +22,7 @@ function ___rvm_prompt {
 }
 
 function ___java_prompt {
-  echo "${gray}java-$(~/.dotfiles/config/java-prompt.zsh)$reset"
+  echo "${gray}java-$(source ~/.dotfiles/config/java-prompt.zsh)$reset"
 }
 
 # rbenv support
@@ -103,3 +103,7 @@ bindkey "^[[6~" history-beginning-search-forward
 zstyle ':completion:*' completer _complete _ignored _files
 
 export REBEL_HOME=~/projects/tools/jrebel
+
+# jEnv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"

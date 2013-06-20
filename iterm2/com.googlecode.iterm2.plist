@@ -743,9 +743,9 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>929 83 445 270 0 0 1440 878 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>238 258 924 485 0 0 1440 878 </string>
+	<string>238 258 605 485 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>41 164 1336 641 0 0 1440 878 </string>
+	<string>302 -794 1336 776 267 -900 1440 900 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2269,7 +2269,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-05-16T19:15:17Z</date>
+	<date>2013-06-18T14:27:12Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
