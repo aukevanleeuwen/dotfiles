@@ -51,6 +51,9 @@ setopt autocd beep extendedglob nomatch
 setopt hist_ignore_all_dups
 unsetopt auto_name_dirs
 
+# Use brew zsh_completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 autoload -Uz compinit
 compinit
 
