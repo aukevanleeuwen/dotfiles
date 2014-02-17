@@ -108,6 +108,7 @@ zstyle ':completion:*' completer _complete _ignored _files
 export REBEL_HOME=~/projects/tools/jrebel
 
 # jEnv
+export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 

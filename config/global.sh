@@ -16,7 +16,6 @@ export RUBY_HEAP_FREE_MIN=20000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 
 # Paths
-export PATH="/usr/local/bin:$PATH"
 if [[ -d "$HOME/.rvm/bin" ]]; then
   export PATH=$PATH:$HOME/.rvm/bin
 fi

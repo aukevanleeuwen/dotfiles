@@ -54,6 +54,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-scripts/bufexplorer.zip'
 Bundle 'vim-scripts/netrw.vim'
+Bundle 'tpope/vim-fireplace'
 
 Bundle 'Lokaltog/vim-powerline'
 
@@ -63,7 +64,7 @@ if needsToInstallBundles == 1
   echo "\nInstalled.\n"
 endif
 
-filetype plugin indent on
+" filetype plugin indent on
  
  
  
@@ -105,12 +106,12 @@ set timeoutlen=500         " Don't wait so long for ambiguous leader keys
 set gdefault               " assume the /g flag on :s substitutions to replace all matches in a line
 
 " Indenting always 2 spaces, sorry Python
-set cindent
-set expandtab
-set shiftwidth=2
+" set cindent
+" set expandtab
+" set shiftwidth=2
 set smartindent
-set softtabstop=2
-set tabstop=2
+" set softtabstop=2
+" set tabstop=4
 
 " Search
 set smartcase
@@ -136,7 +137,7 @@ autocmd BufReadPost *
       \ endif
 
 " Format xml files
-au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+" au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
 
 
