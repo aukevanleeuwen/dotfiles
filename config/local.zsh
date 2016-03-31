@@ -110,7 +110,11 @@ export REBEL_HOME=~/projects/tools/jrebel
 # jEnv
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 # Own scripts directory
 export PATH="$HOME/projects/scripts:$PATH"
+
+findport () {
+  sudo lsof -iTCP:$1 -sTCP:LISTEN
+}

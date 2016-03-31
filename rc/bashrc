@@ -27,3 +27,5 @@ for PARENT_DIR in ${PROJECT_PARENT_DIRS[@]} ; do
     done
   fi
 done
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

@@ -51,4 +51,4 @@ export REBEL_HOME=~/projects/tools/jrebel
 
 # jEnv
 export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
