@@ -927,7 +927,7 @@
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
-			<real>2</real>
+			<real>1.9900517463684082</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -2207,6 +2207,8 @@
 			<string>/Users/auke</string>
 		</dict>
 	</array>
+	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<true/>
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>481193265.57492</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
