@@ -29,8 +29,6 @@
   diff = auto
   status = auto
   branch = auto
-[help]
-  autocorrect = 1
 [diff]
   renames = copies
 [diff "ruby"]
