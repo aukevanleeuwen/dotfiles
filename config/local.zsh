@@ -105,12 +105,11 @@ bindkey "^[[6~" history-beginning-search-forward
 # Fallback to autocomplete files (for autocompletion a parameter for example)
 zstyle ':completion:*' completer _complete _ignored _files
 
-export REBEL_HOME=~/projects/tools/jrebel
-
 # jEnv
-export PATH="/usr/local/bin:$PATH"
-export PATH="$HOME/.jenv/bin:$PATH"
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+if which jenv > /dev/null; then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"; 
+fi
 
 # Own scripts directory
 export PATH="$HOME/projects/scripts:$PATH"

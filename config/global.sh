@@ -10,13 +10,13 @@ export BUNDLER_EDITOR=$EDITOR
 export GEMEDITOR=$EDITOR
 
 # Ruby Optimalizations
-# export RUBY_HEAP_MIN_SLOTS=1100000
 export RUBY_GC_HEAP_INIT_SLOTS=1100000
 export RUBY_GC_MALLOC_LIMIT=110000000
 export RUBY_HEAP_FREE_MIN=20000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 
 # Paths
+export PATH="/usr/local/bin:$PATH"
 if [[ -d "$HOME/.rvm/bin" ]]; then
   export PATH=$PATH:$HOME/.rvm/bin
 fi
