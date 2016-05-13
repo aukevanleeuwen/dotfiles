@@ -58,6 +58,8 @@ Bundle 'tpope/vim-fireplace'
 
 Bundle 'Lokaltog/vim-powerline'
 
+Bundle 'elzr/vim-json'
+
 if needsToInstallBundles == 1
   echo "\nInstalling Bundles, please ignore key map error messages\n"
   :BundleInstall!
