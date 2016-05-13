@@ -9,21 +9,13 @@ export magenta="\[\033[0;35m\]"
 export cyan="\[\033[0;36m\]"
 export white="\[\033[0;37m\]"
 
-# RVM
-if [[ -s $HOME/.rvm/scripts/rvm ]]; then
-  source $HOME/.rvm/scripts/rvm
-  __rvm_prompt="$gray\$(~/.rvm/bin/rvm-prompt) "
-else
-  __rvm_prompt=""
-fi
-
 # rbenv support
 if which rbenv > /dev/null; then
   eval "$(rbenv init - bash)";
 fi
 
 function __load_prompt {
-  PS1="$__rvm_prompt$(~/.dotfiles/script/prompt $?)"
+  PS1="$(~/.dotfiles/script/prompt $?)"
 }
 PROMPT_COMMAND=__load_prompt
 
@@ -50,5 +42,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export REBEL_HOME=~/projects/tools/jrebel
 
 # jEnv
-export PATH="$HOME/.jenv/bin:$PATH"
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+if which jenv > /dev/null; then 
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"; 
+fi

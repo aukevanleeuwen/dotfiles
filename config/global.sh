@@ -17,9 +17,6 @@ export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 
 # Paths
 export PATH="/usr/local/bin:$PATH"
-if [[ -d "$HOME/.rvm/bin" ]]; then
-  export PATH=$PATH:$HOME/.rvm/bin
-fi
 if [[ -d "/usr/local/sbin" ]]; then
   export PATH=$PATH:/usr/local/sbin
 fi
@@ -102,3 +99,4 @@ function psg {
   REST=`echo $1 | sed -e 's/^.\(.*\)/\1/'`
   ps aux | grep "[$FIRST]$REST"
 }
+

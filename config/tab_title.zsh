@@ -28,10 +28,6 @@ case $TERM in (*xterm*|ansi)
         print -Pn "\e]1;✔ $cmd\a"
         settitle
       fi
-    else
-      # When using iTerm2's "Reuse Previous Tab Directory", it doesn't load the right ruby/gemset
-      # This is the safest and easiest way I could think about to "fix" it
-      # rvm reload
     fi
   }
   ;;

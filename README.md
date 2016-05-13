@@ -8,7 +8,7 @@ Some of the features include:
 * Automatic project aliases
 * Lots of cool aliases
 * Ruby on Rails specific aliases
-* RVM and rbenv support
+* RBenv support
 * Vim configuration
 * ... and much more!
 

@@ -9,18 +9,7 @@ export magenta=$'%{\e[0;35m%}'
 export cyan=$'%{\e[0;36m%}'
 export white=$'%{\e[0;37m%}'
 
-# Load RVM
-if [ -s ~/.rvm/scripts/rvm ]; then
-  source ~/.rvm/scripts/rvm
-  __rvm_project_rvmrc
-fi
-
-function ___rvm_prompt {
-  if [ -s ~/.rvm/bin/rvm-prompt ]; then
-    echo "$gray$(~/.rvm/bin/rvm-prompt)$reset"
-  fi
-}
-
+# Java version prompt
 function ___java_prompt {
   echo "${gray}java-$(source ~/.dotfiles/config/java-prompt.zsh)$reset"
 }
