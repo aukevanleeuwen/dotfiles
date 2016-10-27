@@ -104,5 +104,14 @@ fi
 export PATH="$HOME/projects/scripts:$PATH"
 
 findport () {
-  sudo lsof -iTCP:$1 -sTCP:LISTEN
+  sudo lsof -n -P -iTCP:$1 -sTCP:LISTEN
+}
+
+split-threaddump () {
+  gcsplit -z --prefix=$1 --digits=1 $1 '/dump Java HotSpot/' '{*}'
+  
+  for file in $1?; do 
+    cat "$file" | perl -pe 's/^.*?\]: //e;' > "$file.clean"
+    rm "$file"
+  done
 }
