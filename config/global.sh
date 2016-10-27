@@ -24,6 +24,9 @@ export PATH=$PATH:$HOME/.dotfiles/bin
 # Load Node.js bin:
 export PATH="/usr/local/share/npm/bin:$PATH"
 export NODE_PATH="/usr/local/lib/node_modules"
+if [[ -d "/opt/chefdk" ]]; then
+  export PATH="/opt/chefdk/embedded/bin:${HOME}/.chefdk/gem/ruby/2.1.0/bin:$PATH"
+fi
 
 # General aliases
 alias l='ls -halo'
