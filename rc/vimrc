@@ -16,6 +16,8 @@ if !isdirectory(expand("~/.vim"))
   let needsToInstallBundles=1
 endif
 
+set clipboard=unnamedplus
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
