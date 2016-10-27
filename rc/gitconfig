@@ -1,6 +1,7 @@
 [core]
   excludesfile = ~/.dotfiles/config/global_gitignore
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  autocrlf = input
 [alias]
   co = checkout
   st = status
@@ -10,6 +11,7 @@
   df = diff
   lg = log -p
   aa = add --all
+  staged = diff --cached
   unstage = reset HEAD
   new = ls-files --others --exclude-standard
   added = diff --cached --name-only
@@ -17,13 +19,15 @@
   plre = pull --rebase
   ff = merge --ff-only
   newauthor = commit --amend --reset-author -C HEAD
-  poes = push
-  l = "!source ~/.dotfiles/script/githelpers && pretty_git_log"
+  l = !source ~/.dotfiles/script/githelpers && pretty_git_log
   la = !git l --all
   hp = "!source ~/.dotfiles/script/githelpers && show_git_head"
   wtf = "!git commit -m \"$(curl -s whatthecommit.com/index.txt)\""
   scoreboard = "!git log | grep '^Author' | sort | uniq -ci | sort -r"
   ready = rebase -i @{u}
+  last = log @{1}.. --stat -C --no-merges
+  diffdir = difftool -y -d --no-symlinks
+  lo = log --oneline --graph
 [color]
   ui = true
   diff = auto
@@ -31,10 +35,13 @@
   branch = auto
 [diff]
   renames = copies
+  tool = bc3
 [diff "ruby"]
   funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
 [push]
   default = upstream
+[pull]
+  rebase = true
 [branch]
   autosetuprebase = always
 [http]
