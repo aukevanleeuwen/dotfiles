@@ -49,3 +49,12 @@
   insteadOf = heroku:
 [credential]
   helper = osxkeychain
+[merge]
+  tool = bc3
+[mergetool]
+  bc3 = trustExitCode
+  keepBackup = false
+[pager]
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
