@@ -9,6 +9,7 @@ source ~/.dotfiles/config/git_autocomplete.zsh
 # PROJECT_PARENT_DIRS+=("$HOME/Projects")
 
 PROJECT_PARENT_DIRS=()
+CD_ALIAS_GLOBS()
 
 if [[ -f ~/.dotfiles/config/personal.zsh ]]; then
   source ~/.dotfiles/config/personal.zsh
@@ -17,6 +18,18 @@ fi
 if [[ -f ~/.dotfiles/config/personal.sh ]]; then
   source ~/.dotfiles/config/personal.sh
 fi
+
+for CD_ALIAS_GLOB in ${CD_ALIAS_GLOBS[@]}; do
+  for CD_ALIAS_DIR in ${~CD_ALIAS_GLOB}; do
+    ALIAS=$(basename "${CD_ALIAS_DIR}")
+
+    if [[ ! -z `which ${ALIAS} 2> /dev/null` ]]; then
+      if [ -d "${CD_ALIAS_DIR}" ]; then
+        alias "${ALIAS}"="cd \"${CD_ALIAS_DIR}\""
+      fi
+    fi
+  done
+done
 
 for PARENT_DIR in ${PROJECT_PARENT_DIRS[@]} ; do
   if [ -d "$PARENT_DIR" ]; then
@@ -29,4 +42,3 @@ for PARENT_DIR in ${PROJECT_PARENT_DIRS[@]} ; do
     done
   fi
 done
-
