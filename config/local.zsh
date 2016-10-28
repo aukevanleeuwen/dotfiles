@@ -41,7 +41,7 @@ setopt hist_ignore_all_dups
 unsetopt auto_name_dirs
 
 # Use brew zsh_completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=($fpath ~/.dotfiles/completions)
 
 autoload -Uz compinit
 compinit
