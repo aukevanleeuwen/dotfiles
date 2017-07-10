@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
 import csv
+import os
 import sys
+
 
 def determine_dialect(file):
     try:
@@ -17,6 +19,13 @@ def main(argv):
     csv_file_name = argv[0] if len(argv) > 0 else None
     if not csv_file_name:
         print 'Please provide a csv file as argument.'
+        print ''
+        print "        %s [csv-file]" % os.path.basename(__file__)
+        print ''
+        sys.exit(1)
+
+    if not os.path.isfile(csv_file_name):
+        print "The CSV file '%s' does not exist." % csv_file_name
         sys.exit(1)
 
     with open(csv_file_name, 'rb') as csv_file:
