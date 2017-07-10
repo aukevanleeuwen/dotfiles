@@ -103,6 +103,9 @@ fi
 # Own scripts directory
 export PATH="$HOME/projects/scripts:$PATH"
 
+# Homebrew doesn't set this by itself
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+
 findport () {
   sudo lsof -n -P -iTCP:$1 -sTCP:LISTEN
 }
