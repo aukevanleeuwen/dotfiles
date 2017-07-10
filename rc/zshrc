@@ -22,7 +22,8 @@ for CD_ALIAS_GLOB in ${CD_ALIAS_GLOBS[@]}; do
   for CD_ALIAS_DIR in ${~CD_ALIAS_GLOB}; do
     ALIAS=$(basename "${CD_ALIAS_DIR}")
 
-    if [[ ! -z `which ${ALIAS} 2> /dev/null` ]]; then
+
+    if $(echo $(which "${ALIAS}") | grep -q "not found"); then
       if [ -d "${CD_ALIAS_DIR}" ]; then
         alias "${ALIAS}"="cd \"${CD_ALIAS_DIR}\""
       fi
