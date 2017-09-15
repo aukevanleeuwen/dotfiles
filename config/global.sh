@@ -27,6 +27,7 @@ export NODE_PATH="/usr/local/lib/node_modules"
 if [[ -d "/opt/chefdk" ]]; then
   export PATH="/opt/chefdk/embedded/bin:${HOME}/.chefdk/gem/ruby/2.4.0/bin:$PATH"
 fi
+export MAVEN_OPTS="-Xmx1536M -Djavax.xml.accessExternalSchema=all"
 
 # General aliases
 alias l='ls -halo'
