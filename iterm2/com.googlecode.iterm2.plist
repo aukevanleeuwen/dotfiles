@@ -768,11 +768,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 139 606 456 0 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>0 831 918 512 0 0 2560 1417 </string>
+	<string>1076 1805 796 473 -688 900 2560 1417 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>43 292 1487 1125 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 30 2558 1387 0 0 2560 1417 </string>
+	<string>-688 930 2558 1387 -688 900 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -3178,11 +3178,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-05-19T14:36:21Z</date>
+	<date>2017-08-14T08:33:09Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
 	<false/>
+	<key>ShowFullScreenTabBar</key>
+	<true/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SmartPlacement</key>

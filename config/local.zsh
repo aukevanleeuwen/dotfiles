@@ -35,7 +35,7 @@ export SHELL=$(which zsh)
 
 # Stuff I don't really understand, but I was told to use
 
-setopt append_history share_history histignorealldups
+setopt append_history share_history histignorealldups histignorespace
 setopt autocd beep extendedglob nomatch
 setopt hist_ignore_all_dups
 unsetopt auto_name_dirs
@@ -68,6 +68,8 @@ zmodload -ap zsh/mapfile mapfile
 export CLICOLOR=1
 export LS_COLORS='no=00:fi=00:di=00;34:ln=00;36:pi=40;33:so=00;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;35:*.rb=00;31'
 
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path .zcache
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=00;31'
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX+$#SUFFIX)/2 )) numeric )'
