@@ -1,6 +1,7 @@
 source ~/.dotfiles/config/global.sh
 source ~/.dotfiles/config/local.zsh
 source ~/.dotfiles/config/tab_title.zsh
+source ~/.dotfiles/plugins/history-search-multi-word/history-search-multi-word.plugin.zsh
 
 # Define the directories you store your projects in in
 #   ~/.dotfiles/script/personal.zsh
