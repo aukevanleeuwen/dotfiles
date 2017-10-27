@@ -1,0 +1,8 @@
+#!/bin/bash
+
+JIRA_ID=$(git symbolic-ref --short HEAD | perl -ne 's/.*?([A-Z]{3,}-[0-9]+).*/\1/ and print')
+
+if [ -n "$JIRA_ID" ]  && ! grep -q "^$JIRA_ID" "$1" ; then
+  echo "$JIRA_ID: $(cat $1)" > "$1"
+fi
+

@@ -28,6 +28,7 @@
   last = log @{1}.. --stat -C --no-merges
   diffdir = difftool -y -d --no-symlinks
   lo = log --oneline --graph
+  mr = !sh -c 'git fetch ${2:-origin} merge-requests/$1/head:mr-${2:-origin}-$1 && git checkout mr-${2:-origin}-$1' -
 [color]
   ui = true
   diff = auto
@@ -67,3 +68,5 @@
   diff = diff-highlight | less
 [rerere]
 	enabled = true
+[init]
+	templatedir = ~/.dotfiles/git_templates
