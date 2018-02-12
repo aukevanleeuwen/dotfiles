@@ -1,7 +1,7 @@
 #compdef knife
 
-# You can override the path to knife.rb and your cookbooks by setting
-# KNIFE_CONF_PATH=/path/to/my/.chef/knife.rb
+# You can override the path to config.rb and your cookbooks by setting
+# KNIFE_CONF_PATH=/path/to/my/.chef/config.rb
 # KNIFE_COOKBOOK_PATH=/path/to/my/chef/cookbooks
 # If you want your local cookbooks path to be calculated relative to where you are then 
 # set the below option
@@ -213,9 +213,9 @@ _chef_cookbooks_local() {
   if [ $KNIFE_RELATIVE_PATH ]; then 
     local cookbook_path="$(_chef_root)/cookbooks"
   else 
-    local knife_rb=${KNIFE_CONF_PATH:-${HOME}/.chef/knife.rb}
-    if [ -f ./.chef/knife.rb ]; then
-      knife_rb="./.chef/knife.rb"
+    local knife_rb=${KNIFE_CONF_PATH:-${HOME}/.chef/config.rb}
+    if [ -f ./.chef/config.rb ]; then
+      knife_rb="./.chef/config.rb"
     fi
     local cookbook_path=${KNIFE_COOKBOOK_PATH:-$(grep cookbook_path $knife_rb | awk 'BEGIN {FS = "[" }; {print $2}' | sed 's/\,//g' | sed "s/'//g" | sed 's/\(.*\)]/\1/' )}
   fi
