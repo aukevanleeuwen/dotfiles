@@ -50,3 +50,7 @@ done
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# stern completion
+[[ -x /usr/local/bin/stern ]] && source <(stern --completion=zsh)
+# helm completion
+[[ -x /usr/local/bin/helm ]] && source <(helm completion zsh)

@@ -29,7 +29,8 @@ bindkey -e
 # Set prompt
 setopt prompt_subst
 PROMPT='$(~/.dotfiles/script/prompt $?)'
-RPROMPT='$(___java_prompt)'
+# Disable for now, currently using a single version anyway
+# RPROMPT='$(___java_prompt)'
 
 export SHELL=$(which zsh)
 
@@ -120,3 +121,40 @@ split-threaddump () {
     rm "$file"
   done
 }
+
+copy-vault-secret () {
+  if [[ ! -n $1 ]] || [[ ! -n $2 ]]; then
+    echo "Please provide 2 arguments: [source] and [target] path."
+  elif ! vault read "$1" &> /dev/null; then
+    echo "Unable to read secret at path $1!"
+  else
+    echo "Copying vault secret $1 to $2..."
+    vault read -field value "$1" | vault write "$2" value=-
+    echo "... done."
+  fi
+}
+
+function container-info () {
+  local context=${2:-mny-dev}
+  local query=${1:-.*}
+  local template="{{range \$item := .items}}{{range .spec.containers}}({{\$item.metadata.namespace}}) {{.image}}\n{{end}}{{end}}"
+
+  kubectl get pods \
+    --context "$context" \
+    --all-namespaces \
+    -o go-template \
+    --template="$(echo $template)" \
+    | sort \
+    | uniq -c \
+    | sed 's/\(.*\):/\1 /g' \
+    | awk '{ print $2 "\t" $3 "\t" $4 "\t" $1 }' \
+    | grep --color=none $query \
+    | column -t -s $'\t'
+}
+
+# cookbook-diff () {
+#   if [[ ! -n $1 ]] || [[ ! -n $2 ]] || [[ ! -n $3 ]]; then
+#     echo "Please provide [cookbook] [source-version] [target-version]"
+#   else
+#     open "http://
+# }
