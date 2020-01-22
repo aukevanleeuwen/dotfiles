@@ -28,6 +28,7 @@ export NODE_PATH="/usr/local/lib/node_modules"
 if [[ -d "/opt/chefdk" ]]; then
   export PATH="/opt/chefdk/embedded/bin:${HOME}/.chefdk/gem/ruby/2.4.0/bin:$PATH"
 fi
+export PATH=$PATH:$HOME/projects/tools/jacoco
 export MAVEN_OPTS="-Xmx1536M -Djavax.xml.accessExternalSchema=all"
 
 # General aliases
@@ -39,16 +40,8 @@ alias tf='tail -f -n 100'
 alias less='less -R' # color codes in less
 alias m='mvim --remote-silent' # open file in existing mvim
 alias grep='grep --colour=always'
-
-# Ruby aliases
-alias r='./script/rails'
-alias rdm='rake db:migrate db:test:prepare'
-alias rr='mkdir -p tmp && touch tmp/restart.txt'
-alias c='bundle exec cucumber -r features'
-alias wip='c --profile wip'
-alias specdoc='time rspec -fd'
-alias s='rspec --require ~/.dotfiles/script/rspec_focus --order default --color --tty'
-alias be='bundle exec'
+alias pstree='pstree -g 3'
+alias k='/usr/local/bin/kubectl'
 alias irb='pry'
 
 # checks to see if bundler is installed, if it isn't it will install it
@@ -105,3 +98,14 @@ function psg {
   ps aux | grep "[$FIRST]$REST"
 }
 
+function jwt-decode() {
+  # (1) strip OpenAM prefix
+  # (2) split on ., keep header/payload
+  # (3) split header/payload with newline
+  # (4) base64 decode and display
+  sed -E 's/^\*[^\*]+\*//' <<< $1 \
+    | cut -d"." -f1,2 \
+    | tr '.' '\n' \
+    | base64 -D \
+    | jq .
+}

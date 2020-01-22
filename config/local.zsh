@@ -107,7 +107,7 @@ fi
 export PATH="$HOME/projects/scripts:$PATH"
 
 # Homebrew doesn't set this by itself
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+# export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
 findport () {
   sudo lsof -n -P -iTCP:$1 -sTCP:LISTEN
@@ -125,11 +125,11 @@ split-threaddump () {
 copy-vault-secret () {
   if [[ ! -n $1 ]] || [[ ! -n $2 ]]; then
     echo "Please provide 2 arguments: [source] and [target] path."
-  elif ! vault read "$1" &> /dev/null; then
-    echo "Unable to read secret at path $1!"
+  elif ! vault read "secret/$1" &> /dev/null; then
+    echo "Unable to read secret at path 'secret/$1'!"
   else
-    echo "Copying vault secret $1 to $2..."
-    vault read -field value "$1" | vault write "$2" value=-
+    echo "Copying vault secret 'secret/$1' to 'secret/$2'..."
+    vault write "secret/$2" @<(vault read --format json "secret/$1" | jq -M .data)
     echo "... done."
   fi
 }
